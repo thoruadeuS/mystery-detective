@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Noir - Resuelve el Misterio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Añadido efecto de partículas flotantes -->
+    <div class="particles"></div>
+    <div class="noise-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <!-- Añadido badge animado al título -->
+            <div class="title-container">
+                <h1 class="title">Detective Noir</h1>
+                <div class="spotlight-badge">ELITE</div>
+            </div>
+            <p class="subtitle">Resuelve el Misterio</p>
+            <!-- Añadido contador de casos resueltos -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">🏆</span>
+                    <span id="casesResolved">0</span> Casos Resueltos
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⚡</span>
+                    <span id="accuracy">0%</span> Precisión
+                </div>
+            </div>
+        </header>
+
+        <div id="caseSelector" class="case-selector">
+            <h2>Selecciona un Caso</h2>
+            <!-- Añadido filtro de dificultad -->
+            <div class="difficulty-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="easy">Fácil</button>
+                <button class="filter-btn" data-filter="medium">Medio</button>
+                <button class="filter-btn" data-filter="hard">Difícil</button>
+            </div>
+            <div id="caseButtons" class="case-buttons"></div>
+        </div>
+
+        <main id="gameContent" class="game-content hidden">
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+                <span id="progressText" class="progress-text">0/0</span>
+            </div>
+
+            <!-- Añadido temporizador -->
+            <div class="timer-container">
+                <span class="timer-icon">⏱️</span>
+                <span id="timer">00:00</span>
+            </div>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <h2>El Caso</h2>
+                    <span id="caseTitle" class="case-badge"></span>
+                </div>
+                <div id="storyText" class="story-text"></div>
+            </section>
+
+            <section class="suspects-section">
+                <div class="section-header">
+                    <h2>Sospechosos</h2>
+                    <span class="badge">Investiga a cada uno</span>
+                </div>
+                <div id="suspectsGrid" class="suspects-grid"></div>
+            </section>
+
+            <section class="clues-section">
+                <div class="section-header">
+                    <h2>Pistas Descubiertas</h2>
+                    <span class="badge">Haz clic para revelar</span>
+                </div>
+                <div id="cluesGrid" class="clues-grid"></div>
+            </section>
+
+            <!-- Añadido panel de notas del detective -->
+            <section class="notes-section">
+                <div class="section-header">
+                    <h2>Notas del Detective</h2>
+                    <span class="badge">Tus observaciones</span>
+                </div>
+                <textarea id="detectiveNotes" placeholder="Escribe tus deducciones aquí..." maxlength="500"></textarea>
+                <div class="note-counter"><span id="noteCount">0</span>/500</div>
+            </section>
+
+            <section class="verdict-section">
+                <h2>¿Quién es el culpable?</h2>
+                <div id="suspectButtons" class="verdict-buttons"></div>
+                <button id="revealBtn" class="reveal-btn" disabled>Revelar Solución</button>
+            </section>
+
+            <div id="verdictModal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="verdictTitle"></h2>
+                    <p id="verdictText"></p>
+                    <!-- Añadido tiempo de resolución al modal -->
+                    <div class="verdict-stats">
+                        <div class="verdict-stat">
+                            <span class="verdict-icon">⏱️</span>
+                            <span id="solveTime">00:00</span>
+                        </div>
+                        <div class="verdict-stat">
+                            <span class="verdict-icon">🔍</span>
+                            <span id="cluesUsed">0/0</span>
+                        </div>
+                    </div>
+                    <button id="newCaseBtn" class="new-case-btn">Elegir Otro Caso</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="cases.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
